@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+:root {
+  --navbar-width: 12.5rem;
+  --navbar-left-border-color: #F0DB4F;
+  --responsive-nav-bg-color: rgba(60, 64, 72, 0.3);
+  --main-body-color: #1b1b1b;
+  --main-text-color: white;
+  --code-background-color: #343434;
+  --code-border-color: #B2B2B2;
+  --emphasis-text-color: #8cb4ff;
+  --commentary-text-color: #54B435;
+  --keyword-text-color: #FF577F;
+  --name-text-color: #FDFF00;
+  --punctuation-text-color: #FBDF07;
+  --second-name-text-color: #89CFFD;
+  --info-background-color: #182631;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--main-text-color);
+  background-color: var(--main-body-color);
+}
+
+/* Estilos del Scrollbar */
+*::-webkit-scrollbar {
+  width: 0.8rem;
+}
+*::-webkit-scrollbar-track {
+  background: grey;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #181818;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+/* Navbar */
+nav {
+  position: fixed;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: var(--navbar-width);
+  overflow-y: auto;
+}
+nav header {
+  padding: 0.5rem;
+  text-align: center;
+}
+nav div {
+  display: flex;
+  flex-direction: column;
+}
+.hidden-menu {
+  display: none;
+}
+#input-menu {
+  display: none;
+}
+nav a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--code-border-color);
+  padding: 0.5rem 1.25rem;
+  transition: all 0.2s ease-out;
+}
+
+/* Contenido General */
+main {
+  margin-left: var(--navbar-width);
+  padding: 1rem;
+}
+
+/* Secciones */
+.main-section {
+  margin-bottom: 1.5rem;
+}
+.main-section header {
+  margin-bottom: 1rem;
+}
+
+/* Artículos */
+article {
+  padding: 0 1rem;
+}
+article > *:not(:last-child) {
+  margin-bottom: 0.7rem;
+}
+article > ul {
+  margin-left: 3rem;
+}
+
+/* Estilos de Hover */
+nav a:hover {
+  color: white;
+  background-color: #3C4048;
+  border-left: 5px solid var(--navbar-left-border-color);
+}
+
+/* Estilo de los bloques de código */
+code {
+  display: block;
+  max-width: fit-content;
+  white-space: pre-line;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--code-background-color);
+  border: 1px solid var(--code-border-color);
+  border-radius: 10px;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+ul code {
+  margin: 0.8rem 0;
+}
+article > code {
+  margin-left: 1.5rem;
+}
+
+/* Elementos de texto */
+.emp {
+  color: var(--emphasis-text-color);
+  font-weight: bold;
+  padding: 0.10rem 0.35rem;
+  border-radius: 8px;
+  background-color: var(--code-background-color);
+}
+.com {
+  color: var(--commentary-text-color);
+  font-weight: 500;
+}
+.key {
+  color: var(--keyword-text-color);
+}
+.pun {
+  color: var(--punctuation-text-color);
+}
+.name {
+  color: var(--name-text-color);
+}
+.sec-n {
+  color: var(--second-name-text-color);
+}
+.main-section .info {
+  width: fit-content;
+  border: 1px solid #5e9eff;
+  border-radius: 10px;
+  margin-left: 0;
+  padding: 0.5rem 1rem 0.5rem 1.5rem;
+  background-color: var(--info-background-color);
+  border-left: 5px solid #5e9eff;
+}
+.main-section .info a {
+  color: var(--emphasis-text-color);
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --navbar-width: 10rem;
+  }
+  html {
+    font-size: 95%;
+  }
+}
+@media (max-width: 575px) {
+  html {
+    font-size: 85%;
+  }
+  nav {
+    height: fit-content;
+    width: 100%;
+    background-color: black;
+  }
+  nav img {
+    display: none;
+  }
+  /* Menu Desplegable */
+  nav header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--navbar-left-border-color);
+  }
+  #menu-label {
+    position: absolute;
+    padding: 0.25rem 0.7rem;
+    background-color: var(--code-background-color);
+    border: 1px solid var(--code-border-color);
+    border-radius: 20px;
+    transform: translateY(25%);
+    right: 1.5rem;
+  }
+  #menu-label span::after {
+    content: "Cerrar";
+  }
+  #menu-label:has(input:checked) span::after{
+    content: "Menu";
+  }
+  #menu-label:has(input:checked) + div {
+    display: none;
+  }
+  
+  nav a {
+    border-bottom: 1px solid var(--navbar-left-border-color);
+  }
+  main {
+    margin: auto;
+  }
+  .main-section header {
+    padding-top: 3.5rem;
+  }
+}

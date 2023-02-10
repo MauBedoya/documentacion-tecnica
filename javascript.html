@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="./assets/favicon.png">
+</head>
+<body>
+  <nav id="navbar">
+    <img src="./assets/javaScript-logo.png" alt="javascript logo">
+    <header>
+      <h1>Apuntes JS</h1>
+    </header>
+    <label for="input-menu" id="menu-label">
+      <span></span>
+      <input type="checkbox" name="menu" id="input-menu" checked>
+    </label>
+    <div id="link-continer">
+      <a href="#Comentarios" class="nav-link">Comentarios</a>
+      <a href="#Variables" class="nav-link">Variables</a>
+      <a href="#Operaciones" class="nav-link">Operaciones</a>
+      <a href="#Caracteres_para_Strings" class="nav-link">Caracteres para Strings</a>
+      <a href="#Operaciones_en_Strings" class="nav-link">Operaciones en Strings</a>
+      <a href="#Arrays" class="nav-link">Arrays</a>
+      <a href="#Funciones" class="nav-link">Funciones</a>
+      <a href="#Variables_Globales" class="nav-link">Variables Globales</a>
+      <a href="#Variables_Locales" class="nav-link">Variables Locales</a>
+      <a href="#Operadores_Logicos" class="nav-link">Operadores Logicos</a>
+    </div>
+  </nav>
+  <main id="main-doc">
+    <section class="main-section" id="Comentarios">
+      <header><h2>Comentarios</h2></header>
+      <article>
+        <p class="info">Tomar en cuenta que LOS APUNTES ESTÁN DESACTUALIZADOS!!!</p>
+        <p>Los comentarios son una herramienta que nos permiten dejar anotaciones en el código sin interrumpir la ejecución del mismo.</p>
+        <p>Algunas recomendaciones de como usar los comentarios son:</p>
+        <ul>
+          <li>No abusar del uso de los comentarios, esto puede hacer que la lectura del código se vea dificultada.</li>
+          <li>Describe el funcionamiento de un bloque de código, no de cada línea del mismo.</li>
+        </ul>
+        <p>Existen dos tipos de comentarios:</p>
+        <ul>
+          <li>
+            <p>Una sola línea, que se inicia con doble slash <span class="emp">" // "</span>, se puede utilizar al lado derecho de una linea de código.</p>
+            <code><span class="com">//Este es un comentario de una linea</span> 
+            <span class="sec-n">console.</span><span class="name">log</span><span class="pun">(</span>"Hello World!"<span class="pun">)</span>; <span class="com">//Este es un comentario al lado derecho del código</span>
+            </code>
+          </li>
+          <li>
+            <p>Comentarios de varias lineas. <span class="emp">" /**/ "</span></p>
+            <code><span class="com">/*
+            * Este es un
+            * comentario de
+            * varias lineas.
+            */</span></code>
+          </li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="Variables">
+      <header><h2>Variables</h2></header>
+      <article>
+        <p>Una variable crea un espacio en la memoria del dispositivo para guardar un valor en ese espacio.</p>
+        <p>Existen diferentes tipos de variables como:</p>
+        <ul>
+          <li>undefined (no existe valor asignado)</li>
+          <li>null (nulo-un objeto no existe)</li>
+          <li>boolean (verdadero o falso)</li>
+          <li>string (cadenas de caracteres)</li>
+          <li>symbol</li>
+          <li>bigint</li>
+          <li>number (números)</li>
+          <li>object (representa objetos)</li>
+        </ul>
+        <p>Para declarar una variable se utiliza el "camelCase", se inicia en minúsculas y las siguientes palabras unidas sin espacios entre si e iniciadas en mayúsculas, no pueden iniciar con números ni tener espacios.</p>
+        <p>Se debe asignar un nombre descriptivo del valor que contiene cada variable para entender mejor su función en el código.</p>
+        <p>Al usar el nombre de una variable definida se debe respetar las mayúsculas, en caso contrario el código no la reconocerá, esto es llamado "Case Sensitive".</p>
+        <code><span class="key">var</span> <span class="sec-n">miName</span>;</code>
+        <p>Ten en cuenta que ya no es recomendable usar <span class="emp">" var "</span> para declarar una variable, es considerado una mala practica ya que ahora se tiene <span class="emp">" let "</span>, esto se vera mas adelante.</p>
+        <p>Para asignar valor a las variables se utiliza el signo <span class="emp">" = "</span>. También Se puede inicializar (asignar un valor) una variable cuando es creada.</p>
+        <code><span class="key">var</span> <span class="sec-n">a</span>;
+        <span class="sec-n">a</span> = 7;
+        <span class="com">// lo mismo pero en una sola línea</span>
+        <span class="key">var</span> <span class="sec-n">a</span> = 7;</code>
+        <p>Se puede asignar una variable como valor de una nueva variable:</p>
+        <code><span class="key">var</span> <span class="sec-n">b</span>;
+        <span class="key">var</span> <span class="sec-n">c</span>;
+
+        <span class="sec-n">b</span> = 7;
+        <span class="sec-n">c</span> = <span class="sec-n">b</span>;</code>
+        <p>Una variable no inicializada es una variable creada pero sin un valor valor especifico, entonces esta toma un valor  <span class="emp">" undefined "</span>.</p>
+        <p>Para crear una variable que contenga una string, se utilizan las comillas dobles.</p>
+        <code><span class="key">var</span> <span class="sec-n">myFirstName</span> = "Mauricio";
+        <span class="key">var</span> <span class="sec-n">myLastName</span> = "Bedoya";</code>
+        <p>Cuando se realizan operaciones con variables no inicializadas el resultado es un <span class="emp">" NaN (not a number) "</span>.</p>
+        <code><span class="key">var</span> <span class="sec-n">d</span>;
+        <span class="sec-n">d</span> = <span class="sec-n">d</span> + 2;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">d</span><span class="pun">)</span>; <span class="com">// NaN</span></code>
+        <p>Cuando se realiza la concatenación de una variable no definida y una string, el resultado es un <span class="emp">" undefined string"</span>.</p>
+        <code><span class="key">var</span> <span class="sec-n">e</span>;
+        <span class="sec-n">e</span> = <span class="sec-n">e</span> + "string";
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">e</span><span class="pun">)</span>; <span class="com">// undefined string</span></code>
+        <p>Para declarar una variable que NO PODAMOS declarar otra vez, pero si modificar a posteriori, usaremos <span class="emp">" let "</span>.</p>
+        <code><span class="key">let</span> <span class="sec-n">phone</span> = 7589424;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">phone</span><span class="pun">)</span>; <span class="com">// 7589424</span></code>
+        <p>Para declarar una constante (valor que no puede ser modificado ni re declarado, es solo de lectura) usaremos <span class="emp">" const "</span>.</p>
+        <p>Para asignar un identificador (nombre) a una constante, se debe usar letras mayúsculas.</p>
+        <code><span class="key">const</span> <span class="sec-n">PI</span> = 3.1415;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">PI</span><span class="pun">)</span>; <span class="com">// 3.1415</span></code>
+      </article>
+    </section>
+    <section class="main-section" id="Operaciones">
+      <header><h2>Operaciones</h2></header>
+      <article>
+        <p>Para realizar operaciones utilizaremos símbolos llamados <span class="emp">" operadores "</span>.</p>
+        <p>En cuanto a los números, También se pueden usar <span class="emp">" floats "</span> (números con decimales), por ejemplo:</p>
+        <code><span class="key">let</span> <span class="sec-n">decimal</span> = 3.4;</code>
+        <ul>
+          <li>
+            <p>El signo <span class="emp">" + "</span> es usado como operador de "ADICIÓN" cuando esta entre dos números</p>
+            <code><span class="key">const</span> <span class="sec-n">SUMA</span> = 5 + 15;
+            <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">SUMA</span><span class="pun">)</span>; <span class="com">// 20</span></code>
+          </li>
+          <li>
+            <p>El signo <span class="emp">" - "</span> es usado como operador de "RESTA" cuando esta entre dos números</p>
+            <code><span class="key">const</span> <span class="sec-n">RESTA</span> = 5 + 2;
+            <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">RESTA</span><span class="pun">)</span>; <span class="com">// 3</span></code>
+          </li>
+          <li>
+            <P>El signo <span class="emp">" * "</span> es usado como operador de "MULTIPLICACIÓN" cuando esta entre dos números</P>
+            <code><span class="key">const</span> <span class="sec-n">MULTI</span> = 3 * 2;
+            <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">MULTI</span><span class="pun">)</span>; <span class="com">// 6</span></code>
+          </li>
+          <li>
+            <P>El signo <span class="emp">" / "</span> es usado como operador de "DIVISION" cuando esta entre dos números</P>
+            <code><span class="key">const</span> <span class="sec-n">COCIENTE</span> = 6 / 2;
+            <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">COCIENTE</span><span class="pun">)</span>; <span class="com">// 3</span></code>
+            <P>Una division entre cero dará <span class="emp">" Infinity "</span>.</P>
+          </li>
+          <li>
+            <p>El signo <span class="emp">" % "</span> es usado para encontrar el resto entre la division de dos números.</p>
+            <code><span class="key">CONST</span> <span class="sec-n">RESTO</span> = 7 % 2;
+            <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">RESTO</span><span class="pun">)</span>; <span class="com">// el resultado sera 1, ya que 2*3=6 y falta 1 para ser 7</span></code>
+          </li>
+        </ul>
+        <P class="info">En caso de dar el resultado un cierto numero de decimales, se puede dar el caso de que se muestre una aproximación (redondeo) ya que la computadora no podrá mostrar el valor exacto, este es un problema de javascript. <br>
+        Un video para arreglar el tema si fuera necesario: <a href="https://youtu.be/pQOUHzkMdn4" target="_blank" rel="noopener noreferrer">Solución de problema de decimales en JS</a>
+        <code><span class="key">let</span> <span class="sec-n">problem</span> = 3.2 + 3.1;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">problem</span><span class="pun">)</span>; <span class="com">// 6.300...0001</span></code> 
+        </P>
+        <p>También existen formas abreviadas de realizar la mayoría de operaciones que se vieron arriba.</p>
+        <p>Se puede sumar o restar "UNA UNIDAD" y acortar el código simplemente agregando dos veces si operador al lado de la variable de la siguiente manera:</p>
+        <code><span class="com">// Para la suma</span>
+        <span class="key">let</span> <span class="sec-n">sumarUnidad</span> = 4;
+        <span class="sec-n">sumarUnidad</span>++;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">sumarUnidad</span><span class="pun">)</span>; <span class="com">// 5</span>
+
+        <span class="com">// Para la resta</span>
+        <span class="key">let</span> <span class="sec-n">restarUnidad</span> = 5;
+        <span class="sec-n">restarUnidad</span>++;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">restarUnidad</span><span class="pun">)</span>; <span class="com">// 4</span></code>
+        <p>Ademas de simplemente sumar o restar unidades se pueden realizar operaciones un tanto mas "complejas" como es el modificar el valor de una variable "operándose" ella misma con otro valor, esto de manera abreviada. Ten en cuenta que el operador que vayas a usar debe estar unido al signo igual.</p>
+        <p>Para el caso de la <span class="emp">SUMA</span></p>
+        <code><span class="com">// Forma larga</span>
+        <span class="key">let</span> <span class="sec-n">sumaVar1</span> = 5;
+        <span class="sec-n">sumaVar1</span> = <span class="sec-n">sumaVar1</span> + 2;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">sumaVar1</span><span class="pun">)</span>; <span class="com">// 7</span>
+  
+        <span class="com">// Forma abreviada</span>
+        <span class="key">let</span> <span class="sec-n">sumaVar2</span> = 5;
+        <span class="sec-n">sumaVar2</span> += 2;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">sumaVar2</span><span class="pun">)</span>; <span class="com">// 7</span></code>
+
+        <p>Para el caso de la <span class="emp">RESTA</span></p>
+        <code><span class="com">// Forma larga</span>
+        <span class="key">let</span> <span class="sec-n">restaVar1</span> = 5;
+        <span class="sec-n">restaVar1</span> = <span class="sec-n">restaVar1</span> - 2;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">restaVar1</span><span class="pun">)</span>; <span class="com">// 3</span>
+  
+        <span class="com">// Forma abreviada</span>
+        <span class="key">let</span> <span class="sec-n">restaVar2</span> = 5;
+        <span class="sec-n">restaVar2</span> += 2;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">restaVar2</span><span class="pun">)</span>; <span class="com">// 3</span></code>
+
+        <p>Para el caso de la <span class="emp">MULTIPLICACIÓN</span></p>
+        <code><span class="com">// Forma larga</span>
+        <span class="key">let</span> <span class="sec-n">multiVar1</span> = 5;
+        <span class="sec-n">multiVar1</span> = <span class="sec-n">multiVar1</span> * 2;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">multiVar1</span><span class="pun">)</span>; <span class="com">// 10</span>
+  
+        <span class="com">// Forma abreviada</span>
+        <span class="key">let</span> <span class="sec-n">multiVar2</span> = 5;
+        <span class="sec-n">multiVar2</span> *= 2;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">multiVar2</span><span class="pun">)</span>; <span class="com">// 10</span></code>
+
+        <p>Para el caso de la <span class="emp">DIVISION</span></p>
+        <code><span class="com">// Forma larga</span>
+        <span class="key">let</span> <span class="sec-n">divVar1</span> = 5;
+        <span class="sec-n">divVar1</span> = <span class="sec-n">divVar1</span> / 2;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">divVar1</span><span class="pun">)</span>; <span class="com">// 2.5</span>
+
+        <span class="com">// Forma abreviada</span>
+        <span class="key">let</span> <span class="sec-n">divVar2</span> = 5;
+        <span class="sec-n">divVar2</span> /= 2;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">divVar2</span><span class="pun">)</span>; <span class="com">// 2.5</span></code>
+      </article>
+    </section>
+    <section class="main-section" id="Caracteres_para_Strings">
+      <header><h2>Caracteres para Strings</h2></header>
+      <article>
+        <p>//El uso de comillas, normalmente se utilizan comillas dobles <span class="emp">" "</span> para las strings, pero cuando hay otras comillas dentro de la "string" ya rodeada, se utilizan las comillas simples <span class="emp">' '</span> o caracteres de escape <span class="emp">\</span> (\" Texto ejemplo \") para usar las mismas. </p>
+          <ul class="info">
+            <li>Info: <a href="https://es.stackoverflow.com/questions/15372/qu%C3%A9-diferencia-hay-entre-doble-comilla-y-comillas-simples-y" rel="noopener noreferrer" target="_blank">Uso de comillas simples y dobles - Stackoverflow</a></li>
+            <li>En otros lenguajes las comillas dobles y simples no son lo mismo</li>
+          </ul>
+        <p>Las maneras de usar los caracteres de escape son:</p>
+        <code><span class="key">let</span> <span class="sec-n">myStr</span> = "I am a <span class="pun">\"</span>double quoted<span class="pun">\"</span> string inside <span class="pun">\"</span>double quotes<span class="pun">\"</span>."
+        
+        <span class="key">let</span> <span class="sec-n">goodStr</span> = 'Jake asks Finn, <span class="pun">"</span>Hey, let<span class="pun">'</span>s go on an adventure?<span class="pun">"</span><span class="pun">'</code>
+        <p>Existen caracteres o acciones (secuencias de escape) especiales que no son "mostradas" al correr el código e imprimir una "string", por lo cual se utiliza la barra invertida (carácter de escape) para hacer a estos visibles.</p>
+        <ul>
+          <li>\' --> comillas simple (para el ejemplo anterior)</li>
+          <li>\" --> comillas simple (para el ejemplo anterior)</li>
+          <li>\\ --> mostrara una barra invertida</li>
+          <li>\n --> linea nueva //* una de las mas usadas</li>
+          <li>\r --> retorno de carro (un "enter")</li>
+          <li>\t --> tabulation</li>
+          <li>\b --> limite de palabra (un punto rojo¿?)</li>
+          <li>\f --> fuente de formulario (otro punto rojo¿?)</li>
+        </ul>
+        <p>Algunos ejemplos de uso:</p>
+        <code><span class="com">// Se podrán ver los cambios si se corre el código.</span>
+        <span class="key">let</span> <span class="sec-n">characterStr</span> = "First line<span class="pun">\n\t \\</span>Second line<span class="pun">\n</span>Third Line;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">characterStr</span><span class="pun">)</span>;
+
+        <span class="key">let</span> <span class="sec-n">string</span> = "Esta<span class="pun">\b</span>Es<span class="pun">\r</span>Una<span class="pun">\r\t</span>String<span class="pun">\b</span>De<span class="pun">\f</span>Prueba";
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">string</span><span class="pun">)</span>;</code>
+        <p>Para concatenar strings se usa el signo <span class="emp">" + "</span>. Incluso usándolo como el operador <span class="emp">" += "</span>.</p>
+        <code><span class="key">let</span> <span class="sec-n">concatStr</span> = "This is the start. " + "This is the end";
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">concatStr</span><span class="pun">)</span>; <span class="com">// This is the start. This is the end</span>
+        
+        <span class="key">let</span> <span class="sec-n">ourStr</span> "I come first. ";
+        <span class="sec-n">ourStr</span> += "I come second.";
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">ourStr</span><span class="pun">)</span>; <span class="com">// I come first. I come second.</span></code>
+        <p>Se pueden concatenar variables con strings.</p>
+        <code><span class="key">const</span> <span class="sec-n">NOMBRE</span> = "Mauricio";
+        <span class="key">const</span> <span class="sec-n">ORACION</span> = "hola, mi nombre es " + <span class="sec-n">NOMBRE</span> + " y estoy estudiando.";
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">ORACION</span><span class="pun">)</span>; <span class="com">// hola, mi nombre es Mauricio y estoy estudiando.</span></code>
+      </article>
+    </section>
+    <section class="main-section" id="Operaciones_en_Strings">
+      <header><h2>Operaciones en Strings</h2></header>
+      <article>
+        <p>Para encontrar la <span class="emp">LONGITUD</span> de una String solo basta con poner <span class="emp">" .length "</span> al lado de la String o nombre de la variable que la contiene.</p>
+        <code><span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span>"Alan Peter"<span class="sec-n">.length</span><span class="pun">)</span>; <span class="com">// 10</span>
+        <span class="com">// Otro ejemplo:</span>
+        <span class="key">let</span> <span class="sec-n">lastNameLength</span> = 0;
+        <span class="key">const</span> <span class="sec-n">lastName</span> = "Lovelace";
+        <span class="sec-n">lastNameLength</span> = <span class="sec-n">lastName.length;</span>
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">lastNameLength</span><span class="pun">)</span>; <span class="com">// 8</span></code>
+        <p>Se puede <span class="emp">extraer (copiar)</span> un carácter simplemente poniendo la posición que ocupa entre corchetes <span class="emp">[ ]</span>.</p>
+        <p class="info">Recuerda que en programación debes contar desde CERO.</p>
+        <code><span class="key">let</span> <span class="sec-n">firstName</span> = "Vanessa";
+        <span class="key">let</span> <span class="sec-n">firstLetter</span> = <span class="sec-n">firstName</span><span class="pun">[</span>0<span class="pun">]</span>; <span class="com">// E</span></code>
+        <p>La manera de conocer el ultimo carácter de una string es combinando las dos operaciones que se vieron en esta sección.</p>
+        <code><span class="key">let</span> <span class="sec-n">yourName</span> = "Vanessa";
+        <span class="key">let</span> <span class="sec-n">lastLetter</span> = <span class="sec-n">yourName</span><span class="pun">[</span><span class="sec-n">yourName.length - 1</span><span class="pun">]</span>; 
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">lastLetter</span><span class="pun">)</span>; <span class="com">// a</span></code>
+        <p>Se debe recordar que no se puede "modificar" (mutar) una String que ya este declarada, para cambiar el contenido, se debe declarar otra vez.</p>
+        <code><span class="key">let</span> <span class="sec-n">hola</span> = "jola mundo";
+        <span class="sec-n">hola</span><span class="pun">[</span>0<span class="pun">]</span> = "H";
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">hola</span><span class="pun">)</span>; <span class="com">// jola mundo</span>
+        
+        <span class="com">// Esta es la manera de modificar una string</span>
+        <span class="key">let</span> <span class="sec-n">hola</span> = "jola mundo";
+        <span class="sec-n">hola</span> = "Hola mundo";
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">hola</span><span class="pun">)</span>; <span class="com">// Hola mundo</span></code>
+      </article>
+    </section>
+    <section class="main-section" id="Arrays">
+      <header><h2>Arrays</h2></header>
+      <article>
+        <p>Los "Arrays" o "Arreglos" permiten almacenar varios datos en un solo lugar. Para crear un array, se declara la variable normalmente pero se asigna sus valores dentro de corchetes.</p>
+        <code><span class="key">let</span> sandwich = <span class="pun">[</span>2, "pan", "mortadela", "mayonesa", 3, "tomate"<span class="pun">]</span>;</code>
+        <p>También se puede anidar arrays dentro de otros arrays. Esto es llamado <span class="emp">" Arreglo Multidimensional "</span> con diferentes niveles, donde el array que contiene los demás es de primer nivel.</p>
+        <code><span class="key">const</span> <span class="sec-n">DAYS</span> = <span class="pun">[</span>
+          ["Monday", 1],
+          ["Tuesday", 2],
+          ["Wednesday", 3],
+          ["Thursday", 4],
+          ["Friday", 5],
+          ["Saturday", 6],
+          ["Sunday", 7],
+        <span class="pun">]</span>;</code>
+        <p>Se puede acceder a los valores que están dentro de un Array mediante el uso de <span class="emp">" indices "</span> (su posición dentro de un array).</p>
+        <code><span class="key">const</span> <span class="sec-n">AGE</span> = <span class="pun">[</span>
+          ["Pedro", 15],
+          ["Mario", 25],
+          ["Juan", 27],
+          ["Maria", 27]
+        <span class="pun">]</span>;
+        <span class="com">Recuerda que no se debe poner espacios entre el nombre del array y el corchete que le sigue</span>
+
+        <span class="com">Ejemplo para imprimir un elemento del array</span>
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">AGE</span>[1]<span class="pun">)</span>; <span class="com">// ["Mario", 25]</span>
+        
+        <span class="com">Ejemplo para asignar una variable con un valor del array</span>
+        <span class="key">let</span> <span class="sec-n">aGuy</span> = <span class="sec-n">AGE</span>[0];
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">aGuy</span><span class="pun">)</span>; <span class="com">// ["Pedro", 15]</span></code>
+        <p>Se pueden realizar operaciones con los elementos del array.</p>
+        <code><span class="key">let</span> <span class="sec-n">sumaArray</span> = <span class="sec-n">age</span>[0][1] + <span class="sec-n">age</span>[1][1] + <span class="sec-n">age</span>[2][1];
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">sumaArray</span><span class="pun">)</span>; <span class="com">// 67</span></code>
+        <p>Los arrays SI pueden ser modificados, aun si son declarados como constantes.</p>
+        <code><span class="key">let</span> <span class="sec-n">ourArray</span> = <span class="pun">[</span>50, 40, 30<span class="pun">]</span>;
+        <span class="sec-n">ourArray</span><span class="pun">[</span>1<span class="pun">]</span> = 100;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">ourArray</span><span class="pun">)</span>; <span class="com">// [50, 100, 30]</span></code>
+        <p>Se puede acceder a los valores almacenados en arrays de nivel mas alto que el array contenedor simplemente agregando corchetes con el indice del elemento que requieres.</p>
+        <code><span class="key">const</span><span class="sec-n">ARR</span> = <span class="pun">[</span>
+        [1, 2, 3],
+        [4, 5, 6],
+        [[7, 8, 9], 10, 11]
+        <span class="pun">]</span>;
+
+        <span class="key">let</span> <span class="sec-n">primNivel</span> = <span class="sec-n">ARR</span><span class="pun">[</span>0<span class="pun">]</span>;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">primNivel</span><span class="pun">)</span>; <span class="com">// [1, 2, 3]</span>
+      
+        <span class="key">let</span> <span class="sec-n">segNivel</span> = <span class="sec-n">ARR</span><span class="pun">[</span>1<span class="pun">]</span><span class="pun">[</span>0<span class="pun">]</span>;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">segNivel</span><span class="pun">)</span>; <span class="com">// 4</span>
+      
+        <span class="key">let</span> <span class="sec-n">terNivel</span> = <span class="sec-n">ARR</span><span class="pun">[</span>2<span class="pun">]</span><span class="pun">[</span>0<span class="pun">]</span><span class="pun">[</span>1<span class="pun">]</span>;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">terNivel</span><span class="pun">)</span>; <span class="com">// 8</span>
+        </code>
+        <p>Existen algunas operaciones básicas que ayudan a editar el contenido de los arrays.</p>
+        <p>Con <span class="emp">" .push() "</span> es posible <span class="emp">agregar</span> elementos "empujándolos" al array. El elemento agregado queda al <span class="emp">FINAL</span> del array.</p>
+        <code><span class="key">let</span><span class="sec-n">pushArray</span> = <span class="pun">[</span>
+          ["perro", 1],
+          ["gato", 2],
+          ["loro", 3]
+        <span class="pun">]</span>;
+        <span class="sec-n">pushArray</span>.<span class="name">push</span><span class="pun">(</span>["caballo", 4]<span class="pun">)</span>;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">pushArray</span><span class="pun">)</span>;</code>
+        <p>Con <span class="emp">" .unshift "</span> es posible agregar elementos "empujándolos" al array. El elemento agregado queda al <span class="emp">PRINCIPIO</span> del array.</p>
+        <code><span class="key">let</span> <span class="sec-n">unshiArray</span> = <span class="pun">[</span>
+          ["perro", 1],
+          ["gato", 2],
+          ["loro", 3]
+        <span class="pun">]</span>;
+        <span class="sec-n">unshiArray</span>.<span class="name">unshift</span><span class="pun">(</span>["caballo", 4]<span class="pun">)</span>;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">unshiArray</span><span class="pun">)</span>;</code>
+        <p>Con <span class="emp">" .pop() "</span> removemos el <span class="emp">ULTIMO</span> elemento de un array y podemos agregarlo a otra variable</p>
+        <code><span class="key">let</span> <span class="sec-n">popArray</span> = <span class="pun">[</span>
+          ["perro", 1],
+          ["gato", 2],
+          ["loro", 3]
+        <span class="pun">]</span>;
+        <span class="key">let</span> <span class="sec-n">removido</span> <span class="sec-n"> = popArray</span>.<span class="name">pop</span><span class="pun">(</span><span class="pun">)</span>;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">removido</span><span class="pun">)</span>; <span class="com">// ["loro", 3]</span></code>
+        <p>Con <span class="emp">" .shift() "</span> eliminamos el <span class="emp">PRIMER</span> elemento de un array y podemos agregarlo a otra variable, funciona igual a .pop().</p>
+        <code><span class="key">let</span> <span class="sec-n">shiftArray</span> = <span class="pun">[</span>
+          ["perro", 1],
+          ["gato", 2],
+          ["loro", 3]
+        <span class="pun">]</span>;
+        <span class="key">let</span> <span class="sec-n">removido</span> <span class="sec-n"> = shiftArray</span>.<span class="name">shift</span><span class="pun">(</span><span class="pun">)</span>;
+        <span class="sec-n">console</span>.<span class="name">log</span><span class="pun">(</span><span class="sec-n">removido</span><span class="pun">)</span>; <span class="com">// ["perro", 1]</span></code>
+      </article>
+    </section>
+    <section class="main-section" id="Funciones">
+      <header><h2>Funciones</h2></header>
+      <article></article>
+    </section>
+    <section class="main-section" id="Variables_Globales">
+      <header><h2>Variables Globales</h2></header>
+      <article></article>
+    </section>
+    <section class="main-section" id="Variables_Locales">
+      <header><h2>Variables Locales</h2></header>
+      <article></article>
+    </section>
+    <section class="main-section" id="Operadores_Logicos">
+      <header><h2>Operadores Logicos</h2></header>
+      <article></article>
+    </section>
+  </main>
+</body>
+</html>
